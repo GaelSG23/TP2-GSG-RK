@@ -1,8 +1,11 @@
 package tests;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
+import javafx.scene.chart.XYChart;
 import livres.Ouvrage;
 import livres.Auteur;
 import livres.Pays;
@@ -19,6 +22,9 @@ public class TestOuvrage {
         TestOuvrage test = new TestOuvrage();
         test.testOuvrages();
         test.testTrouver();
+        test.nosTestOuvrage();
+        test.testPays();
+
     }
 
 
@@ -102,6 +108,50 @@ public class TestOuvrage {
         resultat = bibliotheque.trouverOuvrages(new Auteur("Jacques", "Beaulieu", new Pays("France", "FFF")));
         System.out.println("Livres de Jacques: " + resultat);
     }
+
+
+    public void nosTestOuvrage() {
+
+        System.out.println("\n-----Test de la  Serie-----------");
+
+        List<Ouvrage> ouvrages = null;
+
+        Auteur auteur1 = new Auteur();
+        Auteur auteur2 = new Auteur();
+        Auteur auteur3 = new Auteur();
+
+
+        ouvrages.add(new Ouvrage("Game of Thrones", auteur1));
+        ouvrages.add(new Ouvrage("Lors of the Rings", auteur2));
+
+        Ouvrage harryPotter = new Ouvrage("Harry Potter", auteur3);
+        ouvrages.add(harryPotter);
+        System.out.println("Voici la liste des ouvrages ");
+
+
+        Serie serie = new Serie("serie1", ouvrages);
+
+        for (List<Ouvrage> s : serie.ouvrages) {
+            System.out.println(o);
+        }
+        System.out.println("Voici la liste des ouvrages sans Harry Potter");
+        ouvrages.remove(harryPotter);
+        for (Ouvrage o : ouvrages) {
+            System.out.println(o);
+        }
+    }
+    public void testPays() {
+        System.out.println("Voici la liste des pays ");
+
+        Pays pays = new Pays("Canada", "ABC");
+        Pays pays1 = new Pays("Canada", "1589");
+
+        Auteur auteur1 = new Auteur("JK","Rowling", pays1);
+        Auteur auteur2 = new Auteur("JK","Rowling", pays1);
+
+
+    }
+
 
 
 }
