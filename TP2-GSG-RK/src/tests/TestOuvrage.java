@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import javafx.scene.chart.XYChart;
 import livres.Ouvrage;
 import livres.Auteur;
 import livres.Pays;
@@ -22,7 +21,7 @@ public class TestOuvrage {
         TestOuvrage test = new TestOuvrage();
         test.testOuvrages();
         test.testTrouver();
-        test.nosTestOuvrage();
+        test.TestSerie();
         test.testPays();
 
     }
@@ -110,11 +109,11 @@ public class TestOuvrage {
     }
 
 
-    public void nosTestOuvrage() {
+    public void TestSerie() {
 
-        System.out.println("\n-----Test de la  Serie-----------");
+        System.out.println("\n-----Test de la  tests.Serie-----------");
 
-        List<Ouvrage> ouvrages = null;
+        List<Ouvrage> ouvrages = new ArrayList<>();
 
         Auteur auteur1 = new Auteur();
         Auteur auteur2 = new Auteur();
@@ -129,9 +128,10 @@ public class TestOuvrage {
         System.out.println("Voici la liste des ouvrages ");
 
 
+
         Serie serie = new Serie("serie1", ouvrages);
 
-        for (List<Ouvrage> s : serie.ouvrages) {
+        for (Ouvrage o : serie.getOuvrages()) {
             System.out.println(o);
         }
         System.out.println("Voici la liste des ouvrages sans Harry Potter");
@@ -144,15 +144,10 @@ public class TestOuvrage {
         System.out.println("Voici la liste des pays ");
 
         Pays pays = new Pays("Canada", "ABC");
-        Pays pays1 = new Pays("Canada", "1589");
+        Pays pays1 = new Pays("Canada", "1589"); //error throw
 
         Auteur auteur1 = new Auteur("JK","Rowling", pays1);
         Auteur auteur2 = new Auteur("JK","Rowling", pays1);
-
-
     }
-
-
-
 }
 
